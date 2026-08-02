@@ -1,0 +1,418 @@
+[
+  {
+    "arabic": "شَكْلِي رَح أَتْأَخَّر",
+    "transliteration": "shakli raḥ at'akhkhar",
+    "english": "Looks like I’m going to be late",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "شَكْلِي = it looks like / I think, speaking about myself."
+  },
+  {
+    "arabic": "بَلْكِي",
+    "transliteration": "balki",
+    "english": "Maybe / perhaps",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Very common in Jordanian and Levantine Arabic."
+  },
+  {
+    "arabic": "بِفارِغ الصَّبْر",
+    "transliteration": "bi-fārigh iṣ-ṣabr",
+    "english": "Eagerly / impatiently",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Literally: with empty patience."
+  },
+  {
+    "arabic": "بِالمَرّة",
+    "transliteration": "bil-marra",
+    "english": "At all; completely",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Often used with negation: ما عجبني بالمرة = I didn’t like it at all."
+  },
+  {
+    "arabic": "مَش جاي عَ بالي",
+    "transliteration": "mish jāy ʿa bāli",
+    "english": "I’m not in the mood",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Literally: it’s not coming to my mind."
+  },
+  {
+    "arabic": "أَكْل جاهِز",
+    "transliteration": "akl jāhiz",
+    "english": "Takeout / prepared food",
+    "category": "Noun",
+    "favorite": false,
+    "notes": "Food that is already prepared."
+  },
+  {
+    "arabic": "هَداك اليَوْم",
+    "transliteration": "hadāk il-yōm",
+    "english": "The other day",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Common conversational time expression."
+  },
+  {
+    "arabic": "مُصَمِّم",
+    "transliteration": "muṣammim",
+    "english": "Determined (masculine)",
+    "category": "Adjective",
+    "favorite": false,
+    "notes": "Feminine: مُصَمِّمَة."
+  },
+  {
+    "arabic": "وَقَع بِوَجْهِي",
+    "transliteration": "wagaʿ bi-wijhi",
+    "english": "It popped up in front of me",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Often used for a post or item that appeared unexpectedly."
+  },
+  {
+    "arabic": "مَرّيت",
+    "transliteration": "marrēt",
+    "english": "I passed by / went through",
+    "category": "Verb",
+    "favorite": false,
+    "notes": "From مَرّ / بِمُرّ."
+  },
+  {
+    "arabic": "بْتِخَوِّث عَلَيّ؟",
+    "transliteration": "btikhawwith ʿalayy?",
+    "english": "Are you kidding me?",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Colloquial Jordanian; can mean joking with or messing with someone."
+  },
+  {
+    "arabic": "اِلْحَقْني",
+    "transliteration": "ilḥagni",
+    "english": "Follow me / catch up with me",
+    "category": "Command",
+    "favorite": false,
+    "notes": "Command to a male. Feminine: اِلْحَقيني."
+  },
+  {
+    "arabic": "يادوب لِحِقْناه",
+    "transliteration": "yādōb liḥignāh",
+    "english": "We barely caught up with him",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "يادوب = barely / just enough."
+  },
+  {
+    "arabic": "عَلى سيرة",
+    "transliteration": "ʿala sīret",
+    "english": "Speaking of...",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Use before introducing a related topic."
+  },
+  {
+    "arabic": "بْتِلْقَطها",
+    "transliteration": "btilgaṭha",
+    "english": "You’ll pick it up / catch on",
+    "category": "Verb",
+    "favorite": false,
+    "notes": "Often used for learning a language or understanding an idea."
+  },
+  {
+    "arabic": "طَفْران",
+    "transliteration": "ṭafrān",
+    "english": "Broke / out of money",
+    "category": "Adjective",
+    "favorite": true,
+    "notes": "Very common colloquial word."
+  },
+  {
+    "arabic": "ما إِلي دَخْل",
+    "transliteration": "mā ili dakhl",
+    "english": "It has nothing to do with me",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Literally: I have no involvement."
+  },
+  {
+    "arabic": "شُو دَخْلي؟",
+    "transliteration": "shū dakhli?",
+    "english": "What does it have to do with me?",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Common defensive or distancing phrase."
+  },
+  {
+    "arabic": "هَيَّني",
+    "transliteration": "hayyani",
+    "english": "Here I am",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Can attach different pronouns: هَيُّه، هَيّها."
+  },
+  {
+    "arabic": "لَحَدّ ما",
+    "transliteration": "laḥadd ma",
+    "english": "Until",
+    "category": "Connector",
+    "favorite": false,
+    "notes": "Very common in speech."
+  },
+  {
+    "arabic": "بِخُصوص",
+    "transliteration": "bikhuṣūṣ",
+    "english": "Regarding / concerning",
+    "category": "Connector",
+    "favorite": false,
+    "notes": "Useful in educated spoken Arabic."
+  },
+  {
+    "arabic": "دَبَّرْلي",
+    "transliteration": "dabberli",
+    "english": "Arrange/get it for me",
+    "category": "Command",
+    "favorite": true,
+    "notes": "From دَبَّر / بِدَبِّر."
+  },
+  {
+    "arabic": "مْنَوَّر",
+    "transliteration": "mnawwar",
+    "english": "You light up the place / welcome",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "To a woman: مْنَوَّرة."
+  },
+  {
+    "arabic": "نَوَّرْتَ المَكان",
+    "transliteration": "nawwart il-makān",
+    "english": "You lit up the place",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Warm greeting to a male visitor."
+  },
+  {
+    "arabic": "عَ رَواق",
+    "transliteration": "ʿa rawāg",
+    "english": "Take it easy / calmly",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Common Jordanian expression."
+  },
+  {
+    "arabic": "أَكَلْت الهَوا",
+    "transliteration": "akalt il-hawa",
+    "english": "I got screwed / ended up with nothing",
+    "category": "Idiom",
+    "favorite": false,
+    "notes": "Literally: I ate the air."
+  },
+  {
+    "arabic": "عَداك العِيب",
+    "transliteration": "ʿadāk il-ʿēb",
+    "english": "No blame on you / you did your part",
+    "category": "Idiom",
+    "favorite": true,
+    "notes": "Said when someone is beyond reproach."
+  },
+  {
+    "arabic": "قالِب بوزَك",
+    "transliteration": "gālib būzak",
+    "english": "You’re sulking / making a long face",
+    "category": "Idiom",
+    "favorite": false,
+    "notes": "Informal; بوز is face/muzzle."
+  },
+  {
+    "arabic": "مَضْغوط",
+    "transliteration": "maḍghūṭ",
+    "english": "Stressed / under pressure",
+    "category": "Adjective",
+    "favorite": false,
+    "notes": "Very common."
+  },
+  {
+    "arabic": "فَرْطان مِن التَّعَب",
+    "transliteration": "farṭān min it-taʿab",
+    "english": "Completely exhausted",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "Strong colloquial description of exhaustion."
+  },
+  {
+    "arabic": "مِشْتاق",
+    "transliteration": "mishtāg",
+    "english": "Missing someone / longing",
+    "category": "Adjective",
+    "favorite": false,
+    "notes": "Feminine: مِشْتاقة."
+  },
+  {
+    "arabic": "اِسْبِقوني",
+    "transliteration": "isbaʾūni",
+    "english": "Go ahead of me",
+    "category": "Command",
+    "favorite": false,
+    "notes": "Plural command."
+  },
+  {
+    "arabic": "بَلْحَقْكُم",
+    "transliteration": "balḥagkum",
+    "english": "I’ll catch up with you",
+    "category": "Verb",
+    "favorite": true,
+    "notes": "Common Jordanian pronunciation."
+  },
+  {
+    "arabic": "ظَلّك ماشي دُغْري",
+    "transliteration": "ḍallak māshi dughri",
+    "english": "Keep going straight",
+    "category": "Directions",
+    "favorite": true,
+    "notes": "To a male."
+  },
+  {
+    "arabic": "وِين صِرْت؟",
+    "transliteration": "wēn ṣirt?",
+    "english": "Where are you now?",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Literally: where did you become/reach?"
+  },
+  {
+    "arabic": "أَصُفَّلَك؟",
+    "transliteration": "aṣuffalak?",
+    "english": "Should I park for you?",
+    "category": "Question",
+    "favorite": false,
+    "notes": "From صَفّ / بِصُفّ = park."
+  },
+  {
+    "arabic": "هَيُّو العَدّاد شَغّال",
+    "transliteration": "hayyū il-ʿaddād shaghghāl",
+    "english": "There, the meter is running",
+    "category": "Taxi",
+    "favorite": false,
+    "notes": "Useful in a taxi."
+  },
+  {
+    "arabic": "بِمَلْعَبَك",
+    "transliteration": "bi-malʿabak",
+    "english": "In your court / up to you",
+    "category": "Idiom",
+    "favorite": true,
+    "notes": "Literally: in your playing field."
+  },
+  {
+    "arabic": "طَلْعَة اللُّوَيْبْدَة",
+    "transliteration": "ṭalʿet il-lwēbdeh",
+    "english": "The uphill road to Jabal al-Weibdeh",
+    "category": "Directions",
+    "favorite": false,
+    "notes": "طَلْعَة = uphill stretch/ascent."
+  },
+  {
+    "arabic": "الدِّنْيا قايْمَة قاعْدَة",
+    "transliteration": "id-dinya gāyme gāʿde",
+    "english": "Everything is in an uproar",
+    "category": "Idiom",
+    "favorite": true,
+    "notes": "Literally: the world is standing and sitting."
+  },
+  {
+    "arabic": "شُو رَأْيَك نِقْعُد عَالقَهْوَة؟",
+    "transliteration": "shū raʾyak nigʿud ʿal-gahwe?",
+    "english": "What do you think—shall we sit at the café?",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Natural Jordanian invitation."
+  },
+  {
+    "arabic": "بِدْنا نِتْسَلّى ونِغَيِّر جَوّ",
+    "transliteration": "bidna nitsalla w-nighayyir jaww",
+    "english": "We want to have fun and get a change of scenery",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "نغيّر جو = change the atmosphere / get a break."
+  },
+  {
+    "arabic": "حَجَزْت دَوْر",
+    "transliteration": "ḥajazt dōr",
+    "english": "I took/reserved a number or turn",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "Useful at clinics, banks, and offices."
+  },
+  {
+    "arabic": "أَصْلًا ما بَدّي أَروح",
+    "transliteration": "aṣlan ma biddi arūḥ",
+    "english": "Actually, I don’t want to go anyway",
+    "category": "Expression",
+    "favorite": true,
+    "notes": "أصلًا adds “actually / in the first place / anyway.”"
+  },
+  {
+    "arabic": "شُو الواحَد بِقْدَر يِعْمَل بِدون نِت؟",
+    "transliteration": "shū il-wāḥad bigdar yiʿmal bidūn net?",
+    "english": "What can a person even do without internet?",
+    "category": "Expression",
+    "favorite": false,
+    "notes": "الواحد = one/a person, used generically."
+  },
+  {
+    "arabic": "وَطّي صَوْتَك",
+    "transliteration": "waṭṭi ṣōtak",
+    "english": "Lower your voice",
+    "category": "Command",
+    "favorite": false,
+    "notes": "To a male. Feminine pronunciation is similar in fast speech."
+  },
+  {
+    "arabic": "بَطَّلْتوا تْوَقَّفوا اِحْتِرام لِلأُسْتاذ",
+    "transliteration": "baṭṭaltu twaqqafu iḥtirām lil-ustādh",
+    "english": "You all stopped standing out of respect for the teacher",
+    "category": "Sentence",
+    "favorite": false,
+    "notes": "بَطَّل = stop doing something / no longer do it."
+  },
+  {
+    "arabic": "يِتْعاوَن",
+    "transliteration": "yitʿāwan",
+    "english": "To cooperate",
+    "category": "Verb",
+    "favorite": false,
+    "notes": "Past: تْعاوَن. Verbal noun: تَعاوُن."
+  },
+  {
+    "arabic": "راح / بِروح",
+    "transliteration": "rāḥ / birūḥ",
+    "english": "To go",
+    "category": "Verb",
+    "favorite": false,
+    "notes": "One of the most common verbs."
+  },
+  {
+    "arabic": "رِجِع / بِرْجَع",
+    "transliteration": "rijiʿ / birjaʿ",
+    "english": "To return; resume doing",
+    "category": "Verb",
+    "favorite": true,
+    "notes": "رِجِع يِدْرُس = he went back to studying."
+  },
+  {
+    "arabic": "حاوَل / بِحاوِل",
+    "transliteration": "ḥāwal / biḥāwil",
+    "english": "To try / attempt",
+    "category": "Verb",
+    "favorite": true,
+    "notes": "Verbal noun: مُحاوَلة."
+  },
+  {
+    "arabic": "وَصّى / بِوَصّي",
+    "transliteration": "waṣṣa / biwaṣṣi",
+    "english": "To recommend; instruct; ask someone to take care of something",
+    "category": "Verb",
+    "favorite": true,
+    "notes": "Can also mean to place an order or leave instructions."
+  }
+]

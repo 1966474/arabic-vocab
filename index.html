@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Arabic Vocab">
+  <title>Ed's Arabic Vocabulary</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Jordanian Arabic</p>
+      <h1>Ed’s Vocabulary</h1>
+    </div>
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode">◐</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="stat"><strong id="wordCount">0</strong><span>words</span></div>
+      <div class="stat"><strong id="favCount">0</strong><span>favorites</span></div>
+      <div class="stat"><strong id="learnedCount">0</strong><span>learned</span></div>
+    </section>
+
+    <section class="controls">
+      <label class="search">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Search Arabic, English, or notes">
+      </label>
+      <div class="filter-row">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="All">All categories</option>
+        </select>
+        <button id="favoritesBtn" class="pill">☆ Favorites</button>
+        <button id="shuffleBtn" class="pill">↝ Shuffle</button>
+      </div>
+    </section>
+
+    <section id="flashcard" class="flashcard hidden" tabindex="0">
+      <div class="card-top">
+        <span id="cardCategory" class="badge"></span>
+        <button id="closeCard" class="icon-btn" aria-label="Close flashcard">×</button>
+      </div>
+      <div id="cardArabic" class="arabic large"></div>
+      <div id="cardTrans" class="transliteration"></div>
+      <button id="revealBtn" class="primary">Reveal meaning</button>
+      <div id="cardAnswer" class="answer hidden">
+        <h2 id="cardEnglish"></h2>
+        <p id="cardNotes"></p>
+        <div class="card-actions">
+          <button id="speakCard" class="pill">🔊 Hear it</button>
+          <button id="learnedCard" class="pill">✓ Mark learned</button>
+          <button id="nextCard" class="primary">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="listView">
+      <div class="section-heading">
+        <h2>Your words</h2>
+        <button id="studyBtn" class="primary">Study flashcards</button>
+      </div>
+      <div id="wordList" class="word-list"></div>
+      <p id="emptyState" class="empty hidden">No words matched that search.</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" data-tab="words">📚<span>Words</span></button>
+    <button id="navStudy" data-tab="study">🃏<span>Study</span></button>
+    <button id="navAdd" data-tab="add">＋<span>Add</span></button>
+  </nav>
+
+  <dialog id="addDialog">
+    <form id="addForm" method="dialog">
+      <div class="dialog-head">
+        <h2>Add a word</h2>
+        <button type="button" id="closeDialog" class="icon-btn">×</button>
+      </div>
+      <label>Arabic<input name="arabic" required dir="rtl"></label>
+      <label>Transliteration<input name="transliteration"></label>
+      <label>English<input name="english" required></label>
+      <label>Category<input name="category" value="Expression"></label>
+      <label>Notes<textarea name="notes" rows="3"></textarea></label>
+      <button class="primary wide" type="submit">Save word</button>
+      <p class="fineprint">New words are stored on this device. They survive normal app closing.</p>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
