@@ -1,98 +1,312 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0f766e">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Arabic Vocab">
-  <title>Ed's Arabic Vocabulary</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#43563a">
+<title>Ed's Jordanian Arabic Library</title>
+<style>
+:root{
+  --bg:#f5f2ea;--card:#fff;--ink:#20242a;--muted:#667085;
+  --accent:#5b704f;--accent2:#3f5038;--soft:#e5ecdf;--border:#ddd7cb;
+  --danger:#9b2c2c;--shadow:0 4px 14px rgba(0,0,0,.06)
+}
+[data-theme="dark"]{
+  --bg:#151914;--card:#20271e;--ink:#f3f4ef;--muted:#b3baae;
+  --accent:#a8c496;--accent2:#829e71;--soft:#303a2c;--border:#3a4536;
+  --shadow:0 4px 14px rgba(0,0,0,.22)
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#34422f,#6d815f);color:#fff;padding:calc(22px + env(safe-area-inset-top)) 16px 22px}
+.wrap{max-width:1100px;margin:auto}
+h1{margin:0 0 6px;font-size:clamp(1.65rem,6vw,2.5rem)}
+header p{margin:0;opacity:.9}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+button,input,select,textarea{font:inherit;border:1px solid var(--border);border-radius:11px;padding:11px 12px}
+button{cursor:pointer;background:var(--card);color:var(--ink)}
+button.primary{background:var(--accent2);border-color:var(--accent2);color:#fff}
+button.soft{background:var(--soft)}
+.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;padding:16px 0 12px}
+input,select,textarea{background:var(--card);color:var(--ink)}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px;color:var(--muted)}
+.pill{background:var(--card);border:1px solid var(--border);border-radius:999px;padding:6px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;padding-bottom:30px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:17px;padding:16px;box-shadow:var(--shadow)}
+.card-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.arabic{direction:rtl;text-align:right;font-family:"Geeza Pro","Arial",sans-serif;font-size:2rem;line-height:1.45;font-weight:750}
+.translit{color:var(--accent);font-weight:700}
+.meaning{font-size:1.05rem;margin:8px 0}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.tag{background:var(--soft);padding:4px 8px;border-radius:999px;font-size:.78rem;color:var(--ink)}
+.example{border-left:4px solid var(--accent);padding-left:10px;margin:12px 0}
+.example .ar{direction:rtl;text-align:right;font-size:1.2rem}
+.notes{color:var(--muted);font-size:.9rem}
+.verb-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;margin-top:12px;padding-top:11px;border-top:1px solid var(--border);font-size:.9rem}
+.verb-grid b{color:var(--muted);font-weight:600}
+.actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.actions button{padding:8px 10px;font-size:.88rem}
+.star{border:none;background:transparent;font-size:1.35rem;padding:0}
+.empty{text-align:center;color:var(--muted);padding:45px}
+footer{color:var(--muted);text-align:center;padding:0 16px calc(28px + env(safe-area-inset-bottom))}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.modal.open{display:flex}
+.dialog{background:var(--card);width:min(760px,100%);max-height:92vh;overflow:auto;border-radius:18px;padding:18px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.full{grid-column:1/-1}
+label{display:block;font-size:.84rem;color:var(--muted);margin-bottom:4px}
+textarea{min-height:76px}
+.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.notice{background:var(--soft);border:1px solid var(--border);padding:10px 12px;border-radius:12px;margin:14px 0;color:var(--ink)}
+@media(max-width:760px){
+  .toolbar{grid-template-columns:1fr 1fr}
+  .toolbar input{grid-column:1/-1}
+  .form-grid{grid-template-columns:1fr}.full{grid-column:auto}
+}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">Jordanian Arabic</p>
-      <h1>Ed’s Vocabulary</h1>
+<header>
+<div class="wrap">
+  <h1>Ed’s Jordanian Arabic Library</h1>
+  <p>Your vocabulary is built into the app and saved on this device.</p>
+  <div class="top-actions">
+    <button class="primary" id="addBtn">+ Add word</button>
+    <button id="themeBtn">🌙 Dark mode</button>
+    <button id="backupBtn">Download backup</button>
+    <label style="display:inline-flex;align-items:center;margin:0">
+      <span style="border:1px solid rgba(255,255,255,.45);border-radius:11px;padding:10px 12px;cursor:pointer">Import JSON</span>
+      <input id="importInput" type="file" accept=".json,application/json" hidden>
+    </label>
+  </div>
+</div>
+</header>
+
+<main class="wrap" style="padding:0 14px">
+<div id="loadNotice" class="notice">Loading vocabulary…</div>
+<section class="toolbar">
+  <input id="search" placeholder="Search Arabic, English, transliteration, root, or notes…">
+  <select id="typeFilter"><option value="">All types</option></select>
+  <select id="topicFilter"><option value="">All categories</option></select>
+</section>
+<section class="stats" id="stats"></section>
+<section id="grid" class="grid"></section>
+</main>
+
+<footer>Changes and favorites are stored locally in Safari on this phone.</footer>
+
+<div id="modal" class="modal">
+  <div class="dialog">
+    <h2 id="modalTitle">Add word</h2>
+    <div class="form-grid">
+      <div><label>Arabic</label><input id="fArabic" dir="rtl"></div>
+      <div><label>Transliteration</label><input id="fTranslit"></div>
+      <div><label>English meaning</label><input id="fMeaning"></div>
+      <div><label>Type</label><input id="fType"></div>
+      <div><label>Root</label><input id="fRoot"></div>
+      <div><label>Category</label><input id="fTopic"></div>
+      <div class="full"><label>Example sentence</label><input id="fExample" dir="rtl"></div>
+      <div class="full"><label>Example translation</label><input id="fExampleTranslation"></div>
+      <div class="full"><label>Notes</label><textarea id="fNotes"></textarea></div>
     </div>
-    <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode">◐</button>
-  </header>
+    <div class="dialog-actions">
+      <button id="cancelBtn">Cancel</button>
+      <button id="saveBtn" class="primary">Save</button>
+    </div>
+  </div>
+</div>
 
-  <main>
-    <section class="hero">
-      <div class="stat"><strong id="wordCount">0</strong><span>words</span></div>
-      <div class="stat"><strong id="favCount">0</strong><span>favorites</span></div>
-      <div class="stat"><strong id="learnedCount">0</strong><span>learned</span></div>
-    </section>
+<script>
+const KEY="ed_arabic_vocab_v2";
+const THEME_KEY="ed_arabic_theme";
+let words=[];
+let editingIndex=null;
+const $=id=>document.getElementById(id);
+const esc=(s="")=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 
-    <section class="controls">
-      <label class="search">
-        <span>⌕</span>
-        <input id="searchInput" type="search" placeholder="Search Arabic, English, or notes">
-      </label>
-      <div class="filter-row">
-        <select id="categoryFilter" aria-label="Filter by category">
-          <option value="All">All categories</option>
-        </select>
-        <button id="favoritesBtn" class="pill">☆ Favorites</button>
-        <button id="shuffleBtn" class="pill">↝ Shuffle</button>
-      </div>
-    </section>
+function normalizeImported(data){
+  if(!Array.isArray(data)) throw new Error("The JSON file must contain a list of vocabulary entries.");
+  return data.map((e)=>({
+    arabic:e.arabic||"",
+    transliteration:e.transliteration||"",
+    meaning:e.meaning||e.english||"",
+    type:e.type||"Other",
+    root:e.root||"",
+    topic:e.topic||e.category||"Imported",
+    dialect:e.dialect||"",
+    status:e.status||"Learning",
+    example:e.example||e.example_ar||"",
+    exampleTranslation:e.exampleTranslation||e.example_en||"",
+    notes:e.notes||"",
+    pastHe:e.pastHe||e.past_he||"",
+    presentHe:e.presentHe||e.present_he||"",
+    presentYouM:e.presentYouM||e.present_you_m||"",
+    pastI:e.pastI||e.past_i||"",
+    presentI:e.presentI||e.present_i||"",
+    activeParticiple:e.activeParticiple||e.active_participle||"",
+    verbalNoun:e.verbalNoun||e.verbal_noun||"",
+    commandM:e.commandM||e.command_m||"",
+    favorite:Boolean(e.favorite)
+  })).filter(e=>e.arabic);
+}
 
-    <section id="flashcard" class="flashcard hidden" tabindex="0">
-      <div class="card-top">
-        <span id="cardCategory" class="badge"></span>
-        <button id="closeCard" class="icon-btn" aria-label="Close flashcard">×</button>
-      </div>
-      <div id="cardArabic" class="arabic large"></div>
-      <div id="cardTrans" class="transliteration"></div>
-      <button id="revealBtn" class="primary">Reveal meaning</button>
-      <div id="cardAnswer" class="answer hidden">
-        <h2 id="cardEnglish"></h2>
-        <p id="cardNotes"></p>
-        <div class="card-actions">
-          <button id="speakCard" class="pill">🔊 Hear it</button>
-          <button id="learnedCard" class="pill">✓ Mark learned</button>
-          <button id="nextCard" class="primary">Next</button>
+function dedupe(list){
+  const map=new Map();
+  list.forEach(w=>{
+    const key=(w.arabic||"").trim()+"|"+(w.type||"").trim().toLowerCase();
+    if(!map.has(key)) map.set(key,w);
+    else map.set(key,{...map.get(key),...Object.fromEntries(Object.entries(w).filter(([k,v])=>v!=="" && v!=null))});
+  });
+  return [...map.values()];
+}
+
+async function load(){
+  const saved=localStorage.getItem(KEY);
+  if(saved){
+    try{ words=normalizeImported(JSON.parse(saved)); }
+    catch(e){ localStorage.removeItem(KEY); }
+  }
+  if(!words.length){
+    try{
+      const res=await fetch("vocabulary.json",{cache:"no-store"});
+      if(!res.ok) throw new Error("Could not load vocabulary.json");
+      words=normalizeImported(await res.json());
+      save();
+    }catch(err){
+      $("loadNotice").textContent="Vocabulary could not load. Use Import JSON to select vocabulary.json.";
+      return;
+    }
+  }
+  $("loadNotice").style.display="none";
+  buildFilters(); render();
+}
+
+function save(){ localStorage.setItem(KEY,JSON.stringify(words)); }
+
+function buildFilters(){
+  const currentType=$("typeFilter").value,currentTopic=$("topicFilter").value;
+  const types=[...new Set(words.map(w=>w.type).filter(Boolean))].sort();
+  const topics=[...new Set(words.map(w=>w.topic).filter(Boolean))].sort();
+  $("typeFilter").innerHTML='<option value="">All types</option>'+types.map(x=>`<option>${esc(x)}</option>`).join("");
+  $("topicFilter").innerHTML='<option value="">All categories</option>'+topics.map(x=>`<option>${esc(x)}</option>`).join("");
+  $("typeFilter").value=currentType;$("topicFilter").value=currentTopic;
+}
+
+function speak(text){
+  if(!("speechSynthesis" in window)){alert("Speech is not supported in this browser.");return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ar-JO"; u.rate=.78;
+  speechSynthesis.speak(u);
+}
+
+function verbDetails(w){
+  const fields=[
+    ["He past",w.pastHe],["He present",w.presentHe],["You present",w.presentYouM],
+    ["I past",w.pastI],["I present",w.presentI],["Active participle",w.activeParticiple],
+    ["Verbal noun",w.verbalNoun],["Command",w.commandM]
+  ].filter(x=>x[1]);
+  if(!fields.length)return "";
+  return `<div class="verb-grid">${fields.map(([a,b])=>`<div><b>${esc(a)}:</b> <span dir="rtl">${esc(b)}</span></div>`).join("")}</div>`;
+}
+
+function render(){
+  const q=$("search").value.trim().toLowerCase();
+  const type=$("typeFilter").value,topic=$("topicFilter").value;
+  const filtered=words.filter(w=>{
+    const hay=[w.arabic,w.transliteration,w.meaning,w.root,w.notes,w.example,w.exampleTranslation,w.dialect].join(" ").toLowerCase();
+    return (!q||hay.includes(q))&&(!type||w.type===type)&&(!topic||w.topic===topic);
+  });
+  $("stats").innerHTML=`<span class="pill">${filtered.length} shown</span><span class="pill">${words.length} total</span><span class="pill">${words.filter(w=>w.favorite).length} favorites</span>`;
+  $("grid").innerHTML=filtered.length?filtered.map(w=>{
+    const i=words.indexOf(w);
+    return `<article class="card">
+      <div class="card-head">
+        <div style="flex:1">
+          <div class="arabic">${esc(w.arabic)}</div>
+          <div class="translit">${esc(w.transliteration)}</div>
         </div>
+        <button class="star" onclick="toggleFavorite(${i})" aria-label="Favorite">${w.favorite?"★":"☆"}</button>
       </div>
-    </section>
-
-    <section id="listView">
-      <div class="section-heading">
-        <h2>Your words</h2>
-        <button id="studyBtn" class="primary">Study flashcards</button>
+      <div class="meaning">${esc(w.meaning)}</div>
+      <div class="meta">
+        ${w.type?`<span class="tag">${esc(w.type)}</span>`:""}
+        ${w.topic?`<span class="tag">${esc(w.topic)}</span>`:""}
+        ${w.dialect?`<span class="tag">${esc(w.dialect)}</span>`:""}
+        ${w.root?`<span class="tag">Root: ${esc(w.root)}</span>`:""}
       </div>
-      <div id="wordList" class="word-list"></div>
-      <p id="emptyState" class="empty hidden">No words matched that search.</p>
-    </section>
-  </main>
-
-  <nav class="bottom-nav">
-    <button class="active" data-tab="words">📚<span>Words</span></button>
-    <button id="navStudy" data-tab="study">🃏<span>Study</span></button>
-    <button id="navAdd" data-tab="add">＋<span>Add</span></button>
-  </nav>
-
-  <dialog id="addDialog">
-    <form id="addForm" method="dialog">
-      <div class="dialog-head">
-        <h2>Add a word</h2>
-        <button type="button" id="closeDialog" class="icon-btn">×</button>
+      ${w.example?`<div class="example"><div class="ar">${esc(w.example)}</div><div>${esc(w.exampleTranslation)}</div></div>`:""}
+      ${w.notes?`<div class="notes">${esc(w.notes)}</div>`:""}
+      ${verbDetails(w)}
+      <div class="actions">
+        <button onclick='speak(${JSON.stringify(w.arabic)})'>🔊 Listen</button>
+        <button onclick="editWord(${i})">Edit</button>
+        <button onclick="deleteWord(${i})">Delete</button>
       </div>
-      <label>Arabic<input name="arabic" required dir="rtl"></label>
-      <label>Transliteration<input name="transliteration"></label>
-      <label>English<input name="english" required></label>
-      <label>Category<input name="category" value="Expression"></label>
-      <label>Notes<textarea name="notes" rows="3"></textarea></label>
-      <button class="primary wide" type="submit">Save word</button>
-      <p class="fineprint">New words are stored on this device. They survive normal app closing.</p>
-    </form>
-  </dialog>
+    </article>`;
+  }).join(""):'<div class="empty">No vocabulary matches those filters.</div>';
+}
 
-  <script src="app.js"></script>
+function toggleFavorite(i){ words[i].favorite=!words[i].favorite;save();render(); }
+function deleteWord(i){
+  if(confirm("Delete this entry?")){words.splice(i,1);save();buildFilters();render();}
+}
+function editWord(i){
+  editingIndex=i; const w=words[i];
+  $("modalTitle").textContent="Edit word";
+  $("fArabic").value=w.arabic||"";$("fTranslit").value=w.transliteration||"";
+  $("fMeaning").value=w.meaning||"";$("fType").value=w.type||"";
+  $("fRoot").value=w.root||"";$("fTopic").value=w.topic||"";
+  $("fExample").value=w.example||"";$("fExampleTranslation").value=w.exampleTranslation||"";
+  $("fNotes").value=w.notes||"";$("modal").classList.add("open");
+}
+function openAdd(){
+  editingIndex=null;$("modalTitle").textContent="Add word";
+  ["fArabic","fTranslit","fMeaning","fType","fRoot","fTopic","fExample","fExampleTranslation","fNotes"].forEach(id=>$(id).value="");
+  $("modal").classList.add("open");
+}
+function closeModal(){$("modal").classList.remove("open");}
+function saveForm(){
+  const w={
+    arabic:$("fArabic").value.trim(),transliteration:$("fTranslit").value.trim(),
+    meaning:$("fMeaning").value.trim(),type:$("fType").value.trim()||"Other",
+    root:$("fRoot").value.trim(),topic:$("fTopic").value.trim()||"Personal",
+    dialect:"Jordanian",status:"Learning",example:$("fExample").value.trim(),
+    exampleTranslation:$("fExampleTranslation").value.trim(),notes:$("fNotes").value.trim(),
+    favorite:editingIndex===null?false:Boolean(words[editingIndex]?.favorite)
+  };
+  if(!w.arabic){alert("Please enter the Arabic word.");return;}
+  if(editingIndex===null) words.unshift(w); else words[editingIndex]={...words[editingIndex],...w};
+  words=dedupe(words);save();buildFilters();render();closeModal();
+}
+
+function downloadBackup(){
+  const blob=new Blob([JSON.stringify(words,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="eds-arabic-vocabulary-backup.json";a.click();URL.revokeObjectURL(a.href);
+}
+function applyTheme(theme){
+  document.documentElement.dataset.theme=theme;
+  $("themeBtn").textContent=theme==="dark"?"☀️ Light mode":"🌙 Dark mode";
+  localStorage.setItem(THEME_KEY,theme);
+}
+$("themeBtn").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+$("search").oninput=render;$("typeFilter").onchange=render;$("topicFilter").onchange=render;
+$("addBtn").onclick=openAdd;$("cancelBtn").onclick=closeModal;$("saveBtn").onclick=saveForm;
+$("backupBtn").onclick=downloadBackup;
+$("importInput").onchange=async e=>{
+  const file=e.target.files[0];if(!file)return;
+  try{
+    const imported=normalizeImported(JSON.parse(await file.text()));
+    const replace=confirm("Press OK to replace the current list.\nPress Cancel to merge the imported entries.");
+    words=replace?dedupe(imported):dedupe([...words,...imported]);
+    save();buildFilters();render();alert(`Imported successfully. ${words.length} entries are now in the app.`);
+  }catch(err){alert("That JSON file could not be imported: "+err.message);}
+  e.target.value="";
+};
+$("modal").onclick=e=>{if(e.target===$("modal"))closeModal()};
+applyTheme(localStorage.getItem(THEME_KEY)||"light");
+load();
+</script>
 </body>
 </html>
